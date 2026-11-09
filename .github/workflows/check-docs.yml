@@ -3,16 +3,17 @@ name: check-docs
 # Builds the V2 docs on their own (services/site/src/docs/script/build.ts): compiles every MDX page,
 # prerenders it, builds search, checks every link and that pages load nothing from outside /v2. The
 # site's deploy runs the same step, so a broken page fails here instead of blocking the deploy.
-on:
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-    paths:
-      - services/site/**
-      - packages/protocol/openapi.json
-      - packages/cli/src/config/**
-      - .github/workflows/check-docs.yml
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     types: [opened, synchronize, reopened, ready_for_review]
+#     paths:
+#       - services/site/**
+#       - packages/protocol/openapi.json
+#       - packages/cli/src/config/**
+#       - .github/workflows/check-docs.yml
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
 

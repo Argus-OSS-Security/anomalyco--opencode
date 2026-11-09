@@ -4,11 +4,12 @@ name: check-bot-scope
 # fails that branch unless it changes nothing but a valid nix/hashes.json. Every other branch passes. The bot's own
 # pushes start no workflows, so bot-nix-hashes.yml dispatches this; pull_request covers anyone else pushing the branch.
 
-on:
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     types: [opened, synchronize, reopened, ready_for_review]
+#   workflow_dispatch:
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true

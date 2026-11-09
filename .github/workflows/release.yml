@@ -9,25 +9,26 @@ run-name: "${{ format('release {0}{1}', inputs.bump, inputs.version) }}"
 #   version on dev reaches latest.
 # .github/release/ and this file are the security boundary for releases.
 
-on:
-  push:
-    branches: [dev, beta]
-  workflow_dispatch:
-    inputs:
-      bump:
-        description: "Bump major, minor, or patch"
-        required: false
-        type: choice
-        options: [major, minor, patch]
-      version:
-        description: "Override version (optional)"
-        required: false
-        type: string
-      release_notes:
-        description: "Reviewed V2 release notes for CHANGELOG.md and the GitHub release (required with bump or version)"
-        required: false
-        type: string
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches: [dev, beta]
+#   workflow_dispatch:
+#     inputs:
+#       bump:
+#         description: "Bump major, minor, or patch"
+#         required: false
+#         type: choice
+#         options: [major, minor, patch]
+#       version:
+#         description: "Override version (optional)"
+#         required: false
+#         type: string
+#       release_notes:
+#         description: "Reviewed V2 release notes for CHANGELOG.md and the GitHub release (required with bump or version)"
+#         required: false
+#         type: string
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ (inputs.bump || inputs.version) && 'release' || 'build' }}
   # Beta ships only the newest commit to the team. A cancelled beta run can leave unreferenced files in R2, but only

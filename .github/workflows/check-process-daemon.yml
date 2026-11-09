@@ -1,17 +1,18 @@
 name: Process daemon
 
-on:
-  pull_request:
-    paths:
-      - packages/process-daemon/**
-      - .github/workflows/check-process-daemon.yml
-  push:
-    branches: [dev]
-    paths:
-      - packages/process-daemon/**
-      - .github/workflows/check-process-daemon.yml
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths:
+#       - packages/process-daemon/**
+#       - .github/workflows/check-process-daemon.yml
+#   push:
+#     branches: [dev]
+#     paths:
+#       - packages/process-daemon/**
+#       - .github/workflows/check-process-daemon.yml
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
 

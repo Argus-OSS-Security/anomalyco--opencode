@@ -1,12 +1,13 @@
 name: bot-docs-locale
 
-on:
-  push:
-    branches:
-      - dev
-    paths:
-      - packages/web/src/content/docs/*.mdx
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - dev
+#     paths:
+#       - packages/web/src/content/docs/*.mdx
+# 
 jobs:
   sync-locales:
     if: false

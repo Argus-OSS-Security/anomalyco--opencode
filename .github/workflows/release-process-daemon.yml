@@ -4,18 +4,19 @@ name: Process daemon release
 # Only process-daemon-v<version> tags publish; pull requests that touch the release pipeline build and pack
 # without publishing.
 
-on:
-  push:
-    tags:
-      - "process-daemon-v*"
-  pull_request:
-    paths:
-      - .github/workflows/release-process-daemon.yml
-      - packages/process-daemon/build.rs
-      - packages/process-daemon/npm/**
-      - packages/process-daemon/script/npm-packages.mjs
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     tags:
+#       - "process-daemon-v*"
+#   pull_request:
+#     paths:
+#       - .github/workflows/release-process-daemon.yml
+#       - packages/process-daemon/build.rs
+#       - packages/process-daemon/npm/**
+#       - packages/process-daemon/script/npm-packages.mjs
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
 

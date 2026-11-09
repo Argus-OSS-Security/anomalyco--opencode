@@ -1,11 +1,12 @@
 name: triage-compliance-close
 
-on:
-  schedule:
-    # Run every 30 minutes to check for expired compliance windows
-    - cron: "*/30 * * * *"
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   schedule:
+#     # Run every 30 minutes to check for expired compliance windows
+#     - cron: "*/30 * * * *"
+#   workflow_dispatch:
+# 
 permissions:
   contents: read
   issues: write

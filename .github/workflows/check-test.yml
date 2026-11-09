@@ -1,19 +1,20 @@
 name: check-test
 
-on:
-  push:
-    branches:
-      - dev
-      - beta
-  pull_request:
-    types: [opened, synchronize, reopened, ready_for_review]
-  workflow_dispatch:
-    inputs:
-      quarantine:
-        description: Run only the quarantined browser tests (packages/app/e2e/QUARANTINE.md)
-        type: boolean
-        default: false
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - dev
+#       - beta
+#   pull_request:
+#     types: [opened, synchronize, reopened, ready_for_review]
+#   workflow_dispatch:
+#     inputs:
+#       quarantine:
+#         description: Run only the quarantined browser tests (packages/app/e2e/QUARANTINE.md)
+#         type: boolean
+#         default: false
+# 
 concurrency:
   # A new push to a pull request cancels its stale run. Every push and manual run keeps its own group, so each
   # dev and beta commit gets a verdict and a quarantine run never cancels a normal one.

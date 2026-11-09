@@ -1,12 +1,13 @@
 name: deploy-site
 
-on:
-  push:
-    branches:
-      - dev
-      - production
-  workflow_dispatch:
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - dev
+#       - production
+#   workflow_dispatch:
+# 
 concurrency:
   group: deploy-site-${{ github.ref_name }}
   cancel-in-progress: false

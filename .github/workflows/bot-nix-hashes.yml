@@ -12,22 +12,23 @@ name: bot-nix-hashes
 permissions:
   contents: read
 
-on:
-  workflow_dispatch:
-  push:
-    branches: [dev]
-    # Mirrored in .github/nix-hashes/publish.sh.
-    paths:
-      - "bun.lock"
-      - "package.json"
-      - "packages/*/package.json"
-      - "services/*/package.json"
-      - "flake.lock"
-      - "nix/node_modules.nix"
-      - "nix/scripts/**"
-      - "patches/**"
-      - ".github/workflows/bot-nix-hashes.yml"
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches: [dev]
+#     # Mirrored in .github/nix-hashes/publish.sh.
+#     paths:
+#       - "bun.lock"
+#       - "package.json"
+#       - "packages/*/package.json"
+#       - "services/*/package.json"
+#       - "flake.lock"
+#       - "nix/node_modules.nix"
+#       - "nix/scripts/**"
+#       - "patches/**"
+#       - ".github/workflows/bot-nix-hashes.yml"
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

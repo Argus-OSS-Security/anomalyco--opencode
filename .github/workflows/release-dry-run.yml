@@ -11,10 +11,11 @@ run-name: "${{ format('release {0}{1}', inputs.bump, inputs.version) }}"
 
 # TEMPORARY copy of release.yml for this PR's dry run: GitHub does not start runs for the release.yml path on
 # pull requests (it is the old name of publish.yml). Delete before merging.
-on:
-  pull_request:
-    paths: [.github/workflows/release.yml, .github/workflows/release-dry-run.yml, .github/release/**]
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   pull_request:
+#     paths: [.github/workflows/release.yml, .github/workflows/release-dry-run.yml, .github/release/**]
+# 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}-${{ (inputs.bump || inputs.version) && 'release' || 'build' }}
   # Beta ships only the newest commit to the team. A cancelled beta run can leave unreferenced files in R2, but only
